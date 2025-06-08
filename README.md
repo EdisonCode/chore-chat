@@ -87,6 +87,44 @@ To apply migrations:
 npx prisma migrate dev
 ```
 
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+
+1. Push your code to GitHub
+2. Connect your GitHub repository to Vercel
+3. Configure environment variables
+4. Deploy automatically on every push
+
+### Other Platforms
+
+Chore Chat can be deployed to any platform that supports Next.js:
+- **Netlify**: Static hosting with serverless functions
+- **Railway**: Full-stack deployment with databases
+- **Docker**: Use the included Dockerfile for containerized deployment
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with ❤️ for families everywhere
+- Inspired by modern task management apps
+- Thanks to the Next.js and React communities
+
 ## API Endpoints
 
 ### Family API
@@ -114,20 +152,6 @@ Integrated for tracing and logging. View traces using the OpenTelemetry Collecto
 ### Prometheus
 
 Configured to pull metrics from port `4320`. View metrics using Prometheus.
-
-## Deployment
-
-### Containerization
-
-The application is containerized using Docker. Use the following command to start the containers:
-
-```bash
-docker-compose up
-```
-
-### Production Deployment
-
-Ensure all environment variables are set and use a production-ready database.
 
 ## Future Features
 
