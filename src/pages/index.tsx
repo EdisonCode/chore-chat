@@ -10,39 +10,39 @@ export default function Home() {
         {/* Hero Section */}
         <div className="max-w-5xl mx-auto relative z-10">
           <div className="mb-12">
-            <div className="w-32 h-32 mx-auto mb-8 relative animate-blob">
+            <div className="w-24 h-24 lg:w-32 lg:h-32 mx-auto mb-8 relative animate-blob">
               <Image
                 src="/logo.png"
                 alt="Chore Chat Logo"
                 width={128}
                 height={128}
-                className="rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-300"
+                className="rounded-2xl lg:rounded-3xl shadow-xl hover:scale-105 transition-transform duration-300"
                 priority
               />
             </div>
-            <h1 className="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-blue-600 to-purple-600 mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-blue-600 to-purple-600 mb-6 leading-tight">
               Chore Chat
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto font-medium leading-relaxed">
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto font-medium leading-relaxed">
               Transform family chore management with our modern, intuitive platform. Track tasks, manage allowances, and build better habits together.
             </p>
           </div>
 
           {/* Feature Cards */}
-          <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-white/80 backdrop-blur-lg rounded-3xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16">
+            <div className="bg-white/85 backdrop-blur-lg rounded-2xl p-6 lg:p-8 shadow-card border border-white/30 hover:shadow-card-hover transition-all duration-300 hover-lift">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 lg:mb-6 mx-auto shadow-sm">
+                <svg className="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h3 className="font-bold text-gray-900 mb-3 text-lg">Family Management</h3>
-              <p className="text-gray-600 leading-relaxed">Add family members and track their chore completion and earnings with our intuitive dashboard.</p>
+              <h3 className="font-semibold text-gray-900 mb-3 text-base lg:text-lg">Family Management</h3>
+              <p className="text-gray-600 leading-relaxed text-sm lg:text-base">Add family members and track their chore completion and earnings with our intuitive dashboard.</p>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-lg rounded-3xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white/85 backdrop-blur-lg rounded-2xl p-6 lg:p-8 shadow-card border border-white/30 hover:shadow-card-hover transition-all duration-300 hover-lift">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 lg:mb-6 mx-auto shadow-sm">
+                <svg className="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                 </svg>
               </div>

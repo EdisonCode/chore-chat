@@ -47,14 +47,14 @@ export default function Chores() {
       
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Create New Chore Section */}
-        <section className="bg-white/80 backdrop-blur-lg rounded-3xl p-8 shadow-xl border border-white/20">
+        <section className="bg-white/85 backdrop-blur-lg rounded-2xl p-6 lg:p-8 shadow-card border border-white/30">
           <div className="flex items-center mb-6">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mr-3 lg:mr-4 shadow-sm">
+              <svg className="icon-responsive text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900">Create a New Chore</h2>
+            <h2 className="text-xl lg:text-2xl font-bold text-gray-900">Create a New Chore</h2>
           </div>
           
           <form onSubmit={handleSubmit(createChore)} className="space-y-6">
@@ -128,14 +128,14 @@ export default function Chores() {
         </section>
 
         {/* Existing Chores Section */}
-        <section className="bg-white/80 backdrop-blur-lg rounded-3xl p-8 shadow-xl border border-white/20">
+        <section className="bg-white/85 backdrop-blur-lg rounded-2xl p-6 lg:p-8 shadow-card border border-white/30">
           <div className="flex items-center mb-6">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-3 lg:mr-4 shadow-sm">
+              <svg className="icon-responsive text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900">Existing Chores</h2>
+            <h2 className="text-xl lg:text-2xl font-bold text-gray-900">Existing Chores</h2>
           </div>
           
           {chores.length === 0 ? (

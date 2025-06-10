@@ -26,14 +26,14 @@ const AddMemberForm: React.FC<AddMemberFormProps> = ({ onAddMember, isLoading = 
         disabled={isLoading}
       >
         <div className="flex items-center justify-center space-x-3 text-gray-500 group-hover:text-blue-600">
-          <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="w-10 h-10 lg:w-12 lg:h-12 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+            <svg className="icon-responsive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
             </svg>
           </div>
           <div className="text-left">
-            <span className="block font-bold text-lg">Add Family Member</span>
-            <span className="block text-sm text-gray-400 group-hover:text-blue-500">Click to add a new member to your family</span>
+            <span className="block font-semibold text-base lg:text-lg">Add Family Member</span>
+            <span className="block text-sm text-gray-500 group-hover:text-blue-600">Click to add a new member to your family</span>
           </div>
         </div>
       </button>
