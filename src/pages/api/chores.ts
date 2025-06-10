@@ -1,56 +1,52 @@
-import { PrismaClient } from '@prisma/client';
+import prisma from '../../infrastructure/repositories/PrismaChoreRepository'; // keep for potential fallback
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { tracer } from '../../utils/otel';
 import logger from '../../utils/logger';
-
-const prisma = new PrismaClient();
+import { createChoreUC, getChoresByFamilyUC } from '../../infrastructure/di';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const span = tracer.startSpan('API Request: Chores');
   try {
     if (req.method === 'POST') {
-      const { name, description, dueDate, memberId, value } = req.body;
+      const { name, description, dueDate, memberId, value, familyId, schedule } = req.body;
 
-      if (!name || !dueDate || !req.body.familyId) {
+      if (!name || !dueDate || !familyId) {
         res.status(400).json({ error: 'Missing required fields: name, dueDate, or familyId' });
         return;
       }
 
       try {
-        console.log('Data for chore creation:', {
+        const chore = await createChoreUC.execute({
+          familyId: String(familyId),
           name,
           description,
           dueDate: new Date(dueDate),
-          schedule: req.body.schedule || '',
+          schedule: schedule || 'one-time',
           value: value || 0,
-          members: req.body.memberIds?.map((id) => ({ id })) || [],
-          family: { connect: { id: req.body.familyId } },
         });
-
-        const newChore = await prisma.chore.create({
-          data: {
-            name,
-            description,
-            dueDate: new Date(dueDate),
-            schedule: req.body.schedule || '',
-            value: value || 0,
-            members: {
-              connect: req.body.memberIds?.map((id) => ({ id })) || [],
-            },
-            family: { connect: { id: req.body.familyId } },
-          },
+        res.status(201).json({
+          id: chore.id,
+          name: chore.name,
+          description: chore.description,
+          dueDate: chore.dueDate,
+          schedule: chore.schedule,
+          value: chore.value,
         });
-        res.status(201).json(newChore);
       } catch (error) {
-        console.error('Error creating chore:', error);
+        logger.error(`Error creating chore: ${error.message}`, { error });
         res.status(500).json({ error: 'Failed to create chore', details: error.message });
       }
     } else if (req.method === 'GET') {
       try {
-        const chores = await prisma.chore.findMany({
-          where: { familyId: Number(req.query.familyId) },
-        });
-        res.status(200).json(chores);
+        const chores = await getChoresByFamilyUC.execute(String(req.query.familyId));
+        res.status(200).json(chores.map(ch => ({
+          id: ch.id,
+          name: ch.name,
+          description: ch.description,
+          dueDate: ch.dueDate,
+          schedule: ch.schedule,
+          value: ch.value,
+        })));
       } catch (error) {
         logger.error(`Error fetching chores: ${error.message}`, { error });
         res.status(500).json({ error: 'Failed to fetch chores' });
@@ -87,9 +83,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     } else if (req.method === 'DELETE') {
       const { id } = req.body;
       try {
-        await prisma.chore.delete({
-          where: { id },
-        });
+        await prisma.chore.delete({ where: { id } });
         res.status(204).end();
       } catch (error) {
         res.status(500).json({ error: 'Failed to delete chore' });

@@ -87,6 +87,16 @@ A consolidated checklist to systematically refine Chore Chat into a simple yet p
 - [ ] Plan for modularization or monorepo split as features grow
 - [ ] Write architectural documentation and update onboarding guides
 
+## 12. Implementation Steps
+- [x] Create a Dependency Injection container (`src/infrastructure/di.ts`) to wire repositories and use-cases
+- [x] Update API route handler (`src/pages/api/chores.ts`) to resolve use-cases from DI container instead of direct Prisma calls
+- [ ] Update API route handler (`src/pages/api/family.ts`) to resolve use-cases from DI container instead of direct Prisma calls
+- [x] Implement application layer services in `src/hooks/api`: create `useChores` and `useFamily` hooks using React Query
+- [ ] Refactor UI components and pages to consume `useChores` and `useFamily` hooks instead of manual fetch calls
+- [x] Configure React Query provider at `_app.tsx` and set up global error and loading boundaries
+- [ ] Write unit tests for domain and application use-cases using mocks (Jest + ts-jest)
+- [ ] Add lint rule or commit hook to enforce layers import (domain cannot import UI, etc.)
+
 ---
 
 *This TODO will evolve as we identify more refinements. Feel free to group or reprioritize tasks based on milestones.*
