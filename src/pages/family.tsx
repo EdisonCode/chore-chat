@@ -92,52 +92,53 @@ const FamilyManagement = () => {
         onBack={handleBackToHome}
       />
 
-      {/* Dashboard Stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-        <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-6 border border-white/20 shadow-lg">
-          <div className="flex items-center justify-between">
+      {/* Financial Education Dashboard */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+        <div className="stat-card hover-glow">
+          <div className="flex items-center justify-between mb-3">
             <div>
-              <p className="text-sm font-medium text-gray-600 uppercase tracking-wide">Total Members</p>
-              <p className="text-3xl font-black text-gray-900 mt-1">{family.members.length}</p>
+              <p className="text-sm font-medium text-gray-600">Family Members</p>
+              <div className="financial-metric">{family.members.length}</div>
             </div>
-            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-              <svg className="icon-responsive text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="security-shield">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
           </div>
+          <p className="text-xs text-blue-600 font-medium">Learning together</p>
         </div>
 
-        <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-6 border border-white/20 shadow-lg">
-          <div className="flex items-center justify-between">
+        <div className="stat-card hover-glow">
+          <div className="flex items-center justify-between mb-3">
             <div>
-              <p className="text-sm font-medium text-gray-600 uppercase tracking-wide">Total Balance</p>
-              <p className="text-3xl font-black text-emerald-600 mt-1">
+              <p className="text-sm font-medium text-gray-600">Family Earnings</p>
+              <div className="currency-display">
                 ${balances.reduce((sum, b) => sum + Math.max(0, b.balance), 0).toFixed(2)}
-              </p>
+              </div>
             </div>
-            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
-              <svg className="icon-responsive text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-              </svg>
+            <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full flex items-center justify-center">
+              <span className="text-xs font-bold text-white">$</span>
             </div>
           </div>
+          <p className="text-xs text-emerald-600 font-medium">↗ Building wealth habits</p>
         </div>
 
-        <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-6 border border-white/20 shadow-lg">
-          <div className="flex items-center justify-between">
+        <div className="stat-card hover-glow">
+          <div className="flex items-center justify-between mb-3">
             <div>
-              <p className="text-sm font-medium text-gray-600 uppercase tracking-wide">Outstanding</p>
-              <p className="text-3xl font-black text-red-500 mt-1">
+              <p className="text-sm font-medium text-gray-600">Outstanding</p>
+              <div className="text-2xl font-bold text-red-500">
                 ${balances.reduce((sum, b) => sum + Math.max(0, -b.balance), 0).toFixed(2)}
-              </p>
+              </div>
             </div>
-            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-red-100 rounded-xl flex items-center justify-center">
-              <svg className="icon-responsive text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-8 h-8 bg-red-100 rounded-xl flex items-center justify-center">
+              <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
               </svg>
             </div>
           </div>
+          <p className="text-xs text-gray-500">Pending payments</p>
         </div>
       </div>
 
